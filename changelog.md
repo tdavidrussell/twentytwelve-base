@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 20151228.2
+* Change: readme.md updated to reflect github.com
+
 #### 20151228.1
 * Add: added to github
 
