@@ -9,16 +9,16 @@
  * @since 20150711.1
  *
  * @category            WordPress_Theme
- * @package             Twenty_Twelve_Development
+ * @package             Twenty_Twelve_Base
  * @subpackage          theme
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ROTW12_VERSION', '20150831.1' );
+define( 'ROTW12_VERSION', '20151228.1' );
 define( 'ROTW12_CDIR', get_stylesheet_directory() ); // if child, will be the file path, with out backslash
-define( 'ROTW12_CURI', get_stylesheet_uri() ); // URL, if child, will be the url to the theme directory, no back slash
+define( 'ROTW12_CURI', get_stylesheet_uri() ); // URL to the theme directory, no back slash
 
 remove_action( 'wp_head', 'wp_generator' );
 
@@ -55,7 +55,6 @@ function rotw12_enqueue_custom_stylesheets() {
 		}
 	}
 }
-
 //add_action( 'wp_enqueue_scripts', 'rotw12_enqueue_custom_stylesheets', 11 );
 
 /**
@@ -68,7 +67,7 @@ function rotw12_add_google_fonts() {
 	wp_enqueue_style( 'rotw12-googleFonts' );
 }
 
-add_action( 'wp_print_styles', 'rotw12_add_google_fonts' );
+//add_action( 'wp_print_styles', 'rotw12_add_google_fonts' );
 
 
 /**
@@ -94,7 +93,6 @@ add_action( 'after_setup_theme', 'rotw12_theme_setup' );
 function rotw12_enqueue_awesome() {
 	wp_enqueue_style( 'rotw12-font-awesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 }
-
-add_action( 'wp_enqueue_scripts', 'rotw12_enqueue_awesome' );
+//add_action( 'wp_enqueue_scripts', 'rotw12_enqueue_awesome' );
 
 ?>

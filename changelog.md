@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 20151228.1
+* Add: added to github
+
 #### 20151221.1
 * Updated: theme description
 
