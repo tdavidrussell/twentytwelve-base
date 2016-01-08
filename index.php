@@ -9,8 +9,8 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @category WordPress_Theme
+ * @package Twenty_Twelve_Base
  * @since Twenty Twelve 1.0
  */
 

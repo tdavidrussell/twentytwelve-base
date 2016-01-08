@@ -4,8 +4,8 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @category WordPress_Theme
+ * @package Twenty_Twelve_Base
  * @since Twenty Twelve 1.0
  */
 ?><!DOCTYPE html>

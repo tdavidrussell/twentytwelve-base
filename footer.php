@@ -4,7 +4,8 @@
  *
  * Contains footer content and the closing of the #main and #page div elements.
  *
- * @package WordPress
+ * @category WordPress_Theme
+ * @package Twenty_Twelve_Base
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
