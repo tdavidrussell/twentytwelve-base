@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 20160108
+* Updated: PHPDoc update for file description
+
 #### 20151228.2
 * Change: readme.md updated to reflect github.com
 

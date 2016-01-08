@@ -50,7 +50,7 @@ function rotw12_enqueue_custom_stylesheets() {
 	if ( ! is_admin() ) {
 		if ( is_child_theme() ) {
 			if ( file_exists( get_stylesheet_directory() . "/custom.css" ) ) {
-				wp_enqueue_style( 'nnc-tw12-theme-custom-css', get_template_directory_uri() . '/custom.css' );
+				wp_enqueue_style( 'tw12-theme-custom-css', get_template_directory_uri() . '/custom.css' );
 			}
 		}
 	}
