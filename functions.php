@@ -23,51 +23,51 @@ define( 'ROTW12_CURI', get_stylesheet_uri() ); // URL to the theme directory, no
 remove_action( 'wp_head', 'wp_generator' );
 
 // Clean up the <head>
-function rotw12_removeHeadLinks() {
+function ro_removeHeadLinks() {
 	remove_action( 'wp_head', 'rsd_link' );
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 }
 
-add_action( 'init', 'rotw12_removeHeadLinks' );
+add_action( 'init', 'ro_removeHeadLinks' );
 
 /**
  * Load the Parent and Child  Theme CSS.
  * This faster than a css @import
  */
-function rotw12_theme_enqueue_styles() {
-	wp_enqueue_style( 'rotw12-parent-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'rotw12-child-style', get_stylesheet_uri(), array( 'parent-style' ) );
+function ro_theme_enqueue_styles() {
+	wp_enqueue_style( 'ro-parent-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'ro-child-style', get_stylesheet_uri(), array( 'ro-parent-style' ) );
 }
 
-add_action( 'wp_enqueue_scripts', 'rotw12_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'ro_theme_enqueue_styles' );
 
 /**
  * Load a custom.css style sheet, if it exists in a child theme.
  *
  * @return void
  */
-function rotw12_enqueue_custom_stylesheets() {
+function ro_enqueue_custom_stylesheets() {
 	if ( ! is_admin() ) {
 		if ( is_child_theme() ) {
 			if ( file_exists( get_stylesheet_directory() . "/custom.css" ) ) {
-				wp_enqueue_style( 'tw12-theme-custom-css', get_template_directory_uri() . '/custom.css' );
+				wp_enqueue_style( 'ro-theme-custom-css', get_template_directory_uri() . '/custom.css' );
 			}
 		}
 	}
 }
-//add_action( 'wp_enqueue_scripts', 'rotw12_enqueue_custom_stylesheets', 11 );
+//add_action( 'wp_enqueue_scripts', 'ro_enqueue_custom_stylesheets', 11 );
 
 /**
  * EXAMPLE:
  * Add google fonts, don't forget to add the to the style.css or custom.css file.
  */
-function rotw12_add_google_fonts() {
-	wp_register_style( 'rotw12-googleFonts', 'http://fonts.googleapis.com/css?family=Lato' );
-	//wp_register_style('rotw12-googleFonts', 'http://fonts.googleapis.com/css?family=Montserrat');
-	wp_enqueue_style( 'rotw12-googleFonts' );
+function ro_add_google_fonts() {
+	wp_register_style( 'ro-googleFonts', 'http://fonts.googleapis.com/css?family=Lato' );
+	//wp_register_style('ro-googleFonts', 'http://fonts.googleapis.com/css?family=Montserrat');
+	wp_enqueue_style( 'rot-googleFonts' );
 }
 
-//add_action( 'wp_print_styles', 'rotw12_add_google_fonts' );
+//add_action( 'wp_print_styles', 'ro_add_google_fonts' );
 
 
 /**
@@ -78,9 +78,9 @@ function rotw12_add_google_fonts() {
  */
 /*
 function rotw12_theme_setup() {
-	load_child_theme_textdomain( 'rotw12-child-theme', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'ro-theme-textdomain', get_stylesheet_directory() . '/languages' );
 }
-add_action( 'after_setup_theme', 'rotw12_theme_setup' );
+add_action( 'after_setup_theme', 'ro_theme_setup' );
 */
 
 
@@ -90,9 +90,9 @@ add_action( 'after_setup_theme', 'rotw12_theme_setup' );
  * @link   http://www.bootstrapcdn.com/#fontawesome
  * @author FAT Media
  */
-function rotw12_enqueue_awesome() {
+function ro_enqueue_awesome() {
 	wp_enqueue_style( 'rotw12-font-awesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 }
-//add_action( 'wp_enqueue_scripts', 'rotw12_enqueue_awesome' );
+//add_action( 'wp_enqueue_scripts', 'ro_enqueue_awesome' );
 
 ?>
