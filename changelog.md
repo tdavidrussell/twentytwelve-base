@@ -1,6 +1,9 @@
 ## Changelog
 
-#### 20160108
+#### 20160512.1
+* Updated: theme description, bumped version
+
+#### 20160108.1
 * Updated: PHPDoc update for file description
 
 #### 20151228.2
