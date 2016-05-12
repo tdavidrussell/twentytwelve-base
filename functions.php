@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ROTW12_VERSION', '20151228.2' );
+define( 'ROTW12_VERSION', '20160512.1' );
 define( 'ROTW12_CDIR', get_stylesheet_directory() ); // if child, will be the file path, with out backslash
 define( 'ROTW12_CURI', get_stylesheet_uri() ); // URL to the theme directory, no back slash
 
@@ -55,6 +55,7 @@ function ro_enqueue_custom_stylesheets() {
 		}
 	}
 }
+
 //add_action( 'wp_enqueue_scripts', 'ro_enqueue_custom_stylesheets', 11 );
 
 /**
@@ -93,6 +94,7 @@ add_action( 'after_setup_theme', 'ro_theme_setup' );
 function ro_enqueue_awesome() {
 	wp_enqueue_style( 'rotw12-font-awesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', array(), '4.0.3' );
 }
+
 //add_action( 'wp_enqueue_scripts', 'ro_enqueue_awesome' );
 
 ?>
