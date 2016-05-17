@@ -16,19 +16,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ROTW12_VERSION', '20160512.1' );
+define( 'ROTW12_VERSION', '20160517.1' );
 define( 'ROTW12_CDIR', get_stylesheet_directory() ); // if child, will be the file path, with out backslash
 define( 'ROTW12_CURI', get_stylesheet_uri() ); // URL to the theme directory, no back slash
 
-remove_action( 'wp_head', 'wp_generator' );
 
-// Clean up the <head>
+/**
+ * By default WordPress adds all sorts of code between the opening and closing head tags of a WordPress theme
+ * So lets clean out some of them
+ *
+ */
 function ro_removeHeadLinks() {
-	remove_action( 'wp_head', 'rsd_link' );
-	remove_action( 'wp_head', 'wlwmanifest_link' );
+	/** remove some header information  **/
+	remove_action( 'wp_head', 'feed_links_extra', 3 );  //category feeds
+	remove_action( 'wp_head', 'feed_links', 2 );        //post and comments feed, see ro_enqueue_default_feed_link()
+	remove_action( 'wp_head', 'rsd_link' );              //only required if you are looking to blog using an external tool
+	remove_action( 'wp_head', 'wlwmanifest_link' );      //something to do with windows live writer
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 ); //next previous post links
+	remove_action( 'wp_head', 'wp_generator' );          //generator tag ie WordPress version info
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );  //short links like ?p=124
 }
 
 add_action( 'init', 'ro_removeHeadLinks' );
+
+
+/**
+ * above we remove all feed (RSS) links lets put them back, for post content.
+ * in ro_remove_head_links() we had to remove the post and comments rss link
+ * now we want to add rss back just for post content
+ * because feed_links() adds both the comments and posts feeds
+ *
+ * @see ro_remove_head_links()
+ */
+function ro_enqueue_default_feed_link() {
+	echo "<link rel='alternate' type='application/rss+xml' title='" . get_bloginfo( 'name' ) . " &raquo; Feed' href='" . get_feed_link() . "' />";
+}
+
+add_action( 'wp_head', 'ro_enqueue_default_feed_link' );
 
 /**
  * Load the Parent and Child  Theme CSS.
